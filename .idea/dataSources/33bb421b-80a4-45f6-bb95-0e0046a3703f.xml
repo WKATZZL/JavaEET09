@@ -741,5 +741,366 @@ javaee|schema||javaee||grant option|G</Grants>
       <Charset>utf8mb4</Charset>
     </collation>
     <user id="226" parent="1" name="javaee"/>
+    <table id="227" parent="3" name="administrator"/>
+    <table id="228" parent="3" name="category"/>
+    <table id="229" parent="3" name="chat"/>
+    <table id="230" parent="3" name="comment"/>
+    <table id="231" parent="3" name="dealt"/>
+    <table id="232" parent="3" name="feedback"/>
+    <table id="233" parent="3" name="goods"/>
+    <table id="234" parent="3" name="upload"/>
+    <table id="235" parent="3" name="user"/>
+    <table id="236" parent="3" name="withdraw"/>
+    <column id="237" parent="227" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="238" parent="227" name="avatar_path">
+      <Position>2</Position>
+      <DataType>varchar(40)|0s</DataType>
+    </column>
+    <column id="239" parent="227" name="create_time">
+      <Position>3</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="240" parent="227" name="email">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="241" parent="227" name="name">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="242" parent="227" name="password">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <key id="243" parent="227" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="244" parent="228" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="245" parent="228" name="category">
+      <Position>2</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="246" parent="228" name="description">
+      <Position>3</Position>
+      <DataType>varchar(512)|0s</DataType>
+    </column>
+    <column id="247" parent="228" name="total_sold">
+      <Position>4</Position>
+      <DataType>varchar(40)|0s</DataType>
+    </column>
+    <column id="248" parent="228" name="sub_category">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <key id="249" parent="228" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="250" parent="229" name="comment_time">
+      <Position>1</Position>
+      <DataType>datetime(6)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="251" parent="229" name="content">
+      <Position>2</Position>
+      <DataType>varchar(512)|0s</DataType>
+    </column>
+    <column id="252" parent="229" name="receiver_id">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="253" parent="229" name="sender_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="254" parent="229" name="FK8bsfsmbs5s6h77fdfpbormi9y">
+      <ColNames>receiver_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="255" parent="229" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>sender_id
+comment_time
+receiver_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="256" parent="229" name="FK8bsfsmbs5s6h77fdfpbormi9y">
+      <ColNames>receiver_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="257" parent="229" name="FKi2b9c4tpmg4vwb2rtvitmusrv">
+      <ColNames>sender_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="258" parent="230" name="comment_time">
+      <Position>1</Position>
+      <DataType>datetime(6)|0s</DataType>
+    </column>
+    <column id="259" parent="230" name="content">
+      <Position>2</Position>
+      <DataType>varchar(512)|0s</DataType>
+    </column>
+    <column id="260" parent="230" name="mark">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="261" parent="230" name="buyer_id">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="262" parent="230" name="seller_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="263" parent="230" name="FKr5vb1h6jn3p9ycwj1a3hkle4u">
+      <ColNames>buyer_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="264" parent="230" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>seller_id
+buyer_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="265" parent="230" name="FKr5vb1h6jn3p9ycwj1a3hkle4u">
+      <ColNames>buyer_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="266" parent="230" name="FKaqjyeosu0f8cbh8hxdrtphm8r">
+      <ColNames>seller_id</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="267" parent="231" name="content">
+      <Position>1</Position>
+      <DataType>varchar(512)|0s</DataType>
+    </column>
+    <column id="268" parent="231" name="dealt_time">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+    </column>
+    <column id="269" parent="231" name="status">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="270" parent="231" name="fid">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="271" parent="231" name="aid">
+      <Position>5</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="272" parent="231" name="FK71gu62hg01uva4g7ylfgw2n4a">
+      <ColNames>aid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="273" parent="231" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="274" parent="231" name="FKr8rf55011obv9agq8ukc9jid">
+      <ColNames>fid</ColNames>
+      <RefTableName>feedback</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="275" parent="231" name="FK71gu62hg01uva4g7ylfgw2n4a">
+      <ColNames>aid</ColNames>
+      <RefTableName>administrator</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="276" parent="232" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="277" parent="232" name="content">
+      <Position>2</Position>
+      <DataType>varchar(512)|0s</DataType>
+    </column>
+    <column id="278" parent="232" name="create_time">
+      <Position>3</Position>
+      <DataType>datetime(6)|0s</DataType>
+    </column>
+    <column id="279" parent="232" name="uid">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="280" parent="232" name="FK9p59yff6kpvemu7pq060jbt0l">
+      <ColNames>uid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="281" parent="232" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="282" parent="232" name="FK9p59yff6kpvemu7pq060jbt0l">
+      <ColNames>uid</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="283" parent="233" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="284" parent="233" name="description">
+      <Position>2</Position>
+      <DataType>varchar(512)|0s</DataType>
+    </column>
+    <column id="285" parent="233" name="image_path">
+      <Position>3</Position>
+      <DataType>varchar(40)|0s</DataType>
+    </column>
+    <column id="286" parent="233" name="name">
+      <Position>4</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="287" parent="233" name="price">
+      <Position>5</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="288" parent="233" name="status">
+      <Position>6</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <key id="289" parent="233" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="290" parent="234" name="name">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="291" parent="234" name="upload_time">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+    </column>
+    <column id="292" parent="234" name="gid">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="293" parent="234" name="uid">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="294" parent="234" name="FKivncj82946dx0o924iofjlodv">
+      <ColNames>uid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="295" parent="234" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>gid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="296" parent="234" name="FK1ut2d9k75kuvra0sgb6iotgh9">
+      <ColNames>gid</ColNames>
+      <RefTableName>goods</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="297" parent="234" name="FKivncj82946dx0o924iofjlodv">
+      <ColNames>uid</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="298" parent="235" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="299" parent="235" name="avatar_path">
+      <Position>2</Position>
+      <DataType>varchar(40)|0s</DataType>
+    </column>
+    <column id="300" parent="235" name="balance">
+      <Position>3</Position>
+      <DataType>int(11)|0s</DataType>
+    </column>
+    <column id="301" parent="235" name="create_time">
+      <Position>4</Position>
+      <DataType>datetime(6)|0s</DataType>
+    </column>
+    <column id="302" parent="235" name="email">
+      <Position>5</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="303" parent="235" name="name">
+      <Position>6</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="304" parent="235" name="password">
+      <Position>7</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <key id="305" parent="235" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="306" parent="236" name="name">
+      <Position>1</Position>
+      <DataType>varchar(20)|0s</DataType>
+    </column>
+    <column id="307" parent="236" name="withdraw_time">
+      <Position>2</Position>
+      <DataType>datetime(6)|0s</DataType>
+    </column>
+    <column id="308" parent="236" name="gid">
+      <Position>3</Position>
+      <DataType>bigint(20)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="309" parent="236" name="uid">
+      <Position>4</Position>
+      <DataType>bigint(20)|0s</DataType>
+    </column>
+    <index id="310" parent="236" name="FK88067068uq68jyvyg9i881ps7">
+      <ColNames>uid</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="311" parent="236" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>gid</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="312" parent="236" name="FK20gcb75tqhbjuv6prpvqr2tf2">
+      <ColNames>gid</ColNames>
+      <RefTableName>goods</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="313" parent="236" name="FK88067068uq68jyvyg9i881ps7">
+      <ColNames>uid</ColNames>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
   </database-model>
 </dataSource>
